@@ -9,7 +9,7 @@ class Program
 
         do
         {
-            option = getMenuPrompt();
+            option = showMenuPrompt();
             switch (option)
             {
                 case "1":
@@ -49,7 +49,7 @@ class Program
 
     }
 
-    static string getMenuPrompt()
+    static string showMenuPrompt()
     {
         Console.WriteLine("Please select one of the following choices:");
         Console.WriteLine("1. Write");
