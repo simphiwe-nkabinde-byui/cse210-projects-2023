@@ -28,7 +28,7 @@ class Program
                 case "3":
                     Console.Write("What is the filename? ");
                     string loadFilename = Console.ReadLine();
-                    if (loadFilename.length)
+                    if (loadFilename.Length > 0)
                     {
                         journal.LoadFromFile(loadFilename);
                     }
@@ -36,7 +36,7 @@ class Program
                 case "4":
                     Console.Write("What is the filename? ");
                     string saveFilename = Console.ReadLine();
-                    if (saveFilename.length)
+                    if (saveFilename.Length > 0)
                     {
                         journal.SaveToFile(saveFilename);
                     }
