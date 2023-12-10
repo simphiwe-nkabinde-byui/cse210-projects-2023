@@ -14,31 +14,34 @@ class Activity
         Console.WriteLine(_description);
         Console.Write($"\nHow long, in seconds, would you like for your session? ");
         _duration = Int32.Parse(Console.ReadLine());
+        Console.Clear();
         Console.WriteLine("Get Ready...");
-        ShowSpinner();
+        ShowSpinner(3);
     }
     public void DisplayEndingMessage()
     {
         Console.WriteLine("\nWell Done!!");
-        ShowSpinner();
+        ShowSpinner(3);
         Console.WriteLine($"\nYou have completeed another {_duration} seconds of the {_name} Activity.");
-        ShowSpinner();
+        ShowSpinner(3);
     }
-    public void ShowSpinner()
+    public void ShowSpinner(int durationInSeconds)
     {
-        int interval = 100;
-        string[] spinnerFrames = { "|", "/", "-", "\\" };
+        string[] spinnerFrames = { "|", "/", "-", "\\", };
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(durationInSeconds);
 
-        for (int i = 0; i < 6; i++)
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
         {
             foreach (var frame in spinnerFrames)
             {
                 Console.Write(frame);
-                Thread.Sleep(interval);
+                Thread.Sleep(200);
                 Console.Write("\b \b");
             }
+            currentTime = DateTime.Now;
         }
-
     }
     public void ShowCountDown(int totalSeconds)
     {
