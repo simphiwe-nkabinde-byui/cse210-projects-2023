@@ -38,6 +38,7 @@ class ReflectingActivity : Activity
     }
     public string GetRandomQuestion()
     {
+        // exceeding requirements: do not repeat random questions until they've all been used atleast once
         if (_usedQuestionIndexes.Count >= _questions.Count)
         {
             _usedQuestionIndexes.Clear();
