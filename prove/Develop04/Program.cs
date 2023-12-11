@@ -4,6 +4,34 @@ class Program
 {
     static void Main(string[] args)
     {
+        int choice = GetMenuChoice();
+        while (choice != 4)
+        {
+            Activity activity = new Activity();
+            switch (choice)
+            {
+                case 1:
+                    activity = new BreathingActivity();
+                    break;
+                case 2:
+                    activity = new ReflectingActivity();
+                    break;
+                case 3:
+                    activity = new ListingActivity();
+                    break;
+                default:
+                    return;
+            }
+            activity.DisplayStartingMessage();
+            activity.Run();
+            activity.DisplayEndingMessage();
+            choice = GetMenuChoice();
+        };
+    }
+
+    public static int GetMenuChoice()
+    {
+        Console.Clear();
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Start Breathing Activity");
         Console.WriteLine("2. Start Reflecting Activity");
@@ -11,28 +39,6 @@ class Program
         Console.WriteLine("4. Quit");
         Console.Write("Select a choice from the menu: ");
         int choice = Int32.Parse(Console.ReadLine());
-
-        switch (choice)
-        {
-            case 1:
-                BreathingActivity activity1 = new BreathingActivity();
-                activity1.DisplayStartingMessage();
-                activity1.Run();
-                activity1.DisplayEndingMessage();
-                break;
-            case 2:
-                ReflectingActivity activity2 = new ReflectingActivity();
-                activity2.DisplayStartingMessage();
-                activity2.Run();
-                activity2.DisplayEndingMessage();
-                break;
-            case 3:
-                ListingActivity activity3 = new ListingActivity();
-                break;
-            case 4:
-                break;
-            default:
-                break;
-        }
+        return choice;
     }
 }

@@ -22,8 +22,12 @@ class Activity
     {
         Console.WriteLine("\nWell Done!!");
         ShowSpinner(3);
-        Console.WriteLine($"\nYou have completeed another {_duration} seconds of the {_name} Activity.");
+        Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name} Activity.");
         ShowSpinner(3);
+    }
+    public virtual void Run() 
+    {
+
     }
     public void ShowSpinner(int durationInSeconds)
     {

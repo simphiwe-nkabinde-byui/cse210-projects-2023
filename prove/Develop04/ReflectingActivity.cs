@@ -23,7 +23,7 @@ class ReflectingActivity : Activity
         _name = "Reflecting";
         _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
-    public void Run()
+    public override void Run()
     {
         DisplayPrompt();
         DisplayQuestions();
@@ -37,7 +37,7 @@ class ReflectingActivity : Activity
     public string GetRandomQuestion()
     {
         Random random = new Random();
-        int randomNum = random.Next(0, _prompts.Count);
+        int randomNum = random.Next(0, _questions.Count);
         return _questions[randomNum];
     }
     public void DisplayPrompt()
