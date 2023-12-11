@@ -25,7 +25,7 @@ class Activity
         Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name} Activity.");
         ShowSpinner(3);
     }
-    public virtual void Run() 
+    public virtual void Run()
     {
 
     }
@@ -54,6 +54,14 @@ class Activity
             Console.Write(i);
             Thread.Sleep(1000);
             Console.Write("\b \b");
+        }
+    }
+    public void WriteToLog(string filename)
+    {
+        string dateText = DateTime.Now.ToShortDateString();
+        using (StreamWriter outputFile = new StreamWriter(filename, true))
+        {
+            outputFile.WriteLine($"{dateText} - {_name} Activity - {_duration} seconds");
         }
     }
 }

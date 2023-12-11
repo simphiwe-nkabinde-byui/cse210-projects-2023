@@ -18,6 +18,8 @@ class ReflectingActivity : Activity
         "How can you keep this experience in mind in the future?",
     };
 
+    private List<int> _usedQuestionIndexes = new List<int>();
+
     public ReflectingActivity()
     {
         _name = "Reflecting";
@@ -36,9 +38,21 @@ class ReflectingActivity : Activity
     }
     public string GetRandomQuestion()
     {
+        if (_usedQuestionIndexes.Count >= _questions.Count)
+        {
+            _usedQuestionIndexes.Clear();
+        }
         Random random = new Random();
         int randomNum = random.Next(0, _questions.Count);
-        return _questions[randomNum];
+        if (!_usedQuestionIndexes.Contains(randomNum))
+        {
+            _usedQuestionIndexes.Add(randomNum);
+            return _questions[randomNum];
+        }
+        else
+        {
+            return GetRandomQuestion();
+        }
     }
     public void DisplayPrompt()
     {
@@ -63,7 +77,7 @@ class ReflectingActivity : Activity
         {
             string randomQuestion = GetRandomQuestion();
             Console.Write($"\n> {randomQuestion} ");
-            base.ShowSpinner(10);
+            base.ShowSpinner(8);
             currentTime = DateTime.Now;
         }
         Console.WriteLine();

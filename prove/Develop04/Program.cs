@@ -25,6 +25,7 @@ class Program
             activity.DisplayStartingMessage();
             activity.Run();
             activity.DisplayEndingMessage();
+            activity.WriteToLog("activityLog.txt");
             choice = GetMenuChoice();
         };
     }
@@ -38,7 +39,15 @@ class Program
         Console.WriteLine("3. Start Listing Activity");
         Console.WriteLine("4. Quit");
         Console.Write("Select a choice from the menu: ");
-        int choice = Int32.Parse(Console.ReadLine());
-        return choice;
+        
+        try
+        {
+            int choice = Int32.Parse(Console.ReadLine());
+            return choice;
+        }
+        catch (System.Exception)
+        {
+            return 4;
+        }
     }
 }
