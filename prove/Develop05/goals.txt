@@ -1,0 +1,4 @@
+110
+Simple,create a simple goal,just a simple one,10,False
+Eternal,an eternal one,create an eternal goal,5
+Checklist,checklist goals,this is a achecklist goal,15,3,50,3
