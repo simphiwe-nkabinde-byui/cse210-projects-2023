@@ -23,6 +23,8 @@ abstract class Goal
         return _shortName;
     }
     public abstract string GetStringRepresentaion();
+
+    // Exceeded requirements: custom animation for congratulation message.
     public void ShowCelebrationAnimation()
     {
         string[] characters = { "C", "O", "N", "G", "R", "A", "T", "U", "L", "A", "T", "I", "O", "N", "S", "!" };
