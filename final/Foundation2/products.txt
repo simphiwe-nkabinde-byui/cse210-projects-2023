@@ -1,0 +1,6 @@
+HB pencil set,h55p,20.99,3
+crayons 12 set,c12sc,34.59,1
+eraser blue,eb33,5,1
+sharpener steel,ss68,12.50,4
+scisors pair lg,spl76,7,1
+pencil bag with zipper,pbwz22,32.66,2

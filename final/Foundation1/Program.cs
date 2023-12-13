@@ -4,7 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine($"Videos");
         string[] comments = System.IO.File.ReadAllLines("comments.txt");
         string[] names = System.IO.File.ReadAllLines("names.txt");
         string[] videoTitles = System.IO.File.ReadAllLines("videoTitles.txt");
